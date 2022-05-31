@@ -15,10 +15,15 @@ public class MainManager : MonoBehaviour
     
     private bool m_Started = false;
     private int m_Points;
+    private string playerName;
     
     private bool m_GameOver = false;
 
-    
+    private void Awake()
+    {
+        ScoreText.text = $"{GameData.Instance.PlayerName}'s Score: 0";
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,7 +70,7 @@ public class MainManager : MonoBehaviour
     void AddPoint(int point)
     {
         m_Points += point;
-        ScoreText.text = $"Score : {m_Points}";
+        ScoreText.text = $"{GameData.Instance.PlayerName}'s Score: {m_Points}";
     }
 
     public void GameOver()
